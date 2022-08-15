@@ -6,7 +6,7 @@ function Todo({ todo, onDeleteHanlder, onEditHandler }) {
     <div className="todo-container">
       <div>
         <h2 className="todo-title">{todo.title}</h2>
-        <div>{todo.body}</div>
+        <div>{todo.todoDesc}</div>
       </div>
       <div className="button-set">
         <button
