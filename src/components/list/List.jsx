@@ -17,7 +17,7 @@ function List({ todos, setTodos }) {
       if (todo.id === todoId) {
         return {
           ...todo,
-          isDone: !todo.isDone,
+          Done: !todo.Done,
         };
       } else {
         return { ...todo };
@@ -32,7 +32,7 @@ function List({ todos, setTodos }) {
       <h2 className="list-title">Working.. </h2>
       <div className="list-wrapper">
         {todos.map((x) => {
-          if (!x.isDone) {
+          if (!x.Done) {
             return (
               <Todo
                 todo={x}
@@ -50,7 +50,7 @@ function List({ todos, setTodos }) {
       <h2 className="list-title">Done..! </h2>
       <div className="list-wrapper">
         {todos.map((x) => {
-          if (x.isDone) {
+          if (x.Done) {
             return (
               <Todo
                 todo={x}
