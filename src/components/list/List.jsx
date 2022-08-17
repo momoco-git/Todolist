@@ -4,7 +4,7 @@ import "./style.css";
 
 function List({ todos, setTodos }) {
 
-  const onDeleteHanlder = (todoId) => {
+  const onDelete = (todoId) => {
     const newTodos = todos.filter((todo) => {
       return todo.id !== todoId;
     });
@@ -12,7 +12,7 @@ function List({ todos, setTodos }) {
     setTodos(newTodos);
   };
 
-  const onEditHandler = (todoId) => {
+  const onEdit = (todoId) => {
     const newTodos = todos.map((todo) => {
       if (todo.id === todoId) {
         return {
@@ -38,8 +38,8 @@ function List({ todos, setTodos }) {
                 todo={x}
                 key={x.id}
                 setTodos={setTodos}
-                onDeleteHanlder={onDeleteHanlder}
-                onEditHandler={onEditHandler}
+                onDelete={onDelete}
+                onEdit={onEdit}
               />
             );
           } else {
@@ -56,8 +56,8 @@ function List({ todos, setTodos }) {
                 todo={x}
                 key={x.id}
                 setTodos={setTodos}
-                onDeleteHanlder={onDeleteHanlder}
-                onEditHandler={onEditHandler}
+                onDelete={onDelete}
+                onEdit={onEdit}
               />
             );
           } else {
