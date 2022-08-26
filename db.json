@@ -1,0 +1,29 @@
+{
+  "bucket": [
+    {
+      "id": 0,
+      "text": "리액트공부하기",
+      "Done": true
+    },
+    {
+      "id": 1,
+      "text": "리덕스공부하기",
+      "Done": true
+    },
+    {
+      "id": 2,
+      "text": "라우터공부하기",
+      "Done": true
+    },
+    {
+      "text": "잘되는건가",
+      "Done": false,
+      "id": 6
+    },
+    {
+      "text": "잘되네 axios",
+      "Done": true,
+      "id": 7
+    }
+  ]
+}

@@ -8,16 +8,27 @@ import BucketList from "./BucketList";
 import Detail from "./Detail";
 import NotFound from "./NotFound";
 import { useDispatch } from "react-redux";
-import { createBucket, loadBucketFB } from "./redux/modules/bucketSlice";
+
 import Progress from "./Progress";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
-import { createBucketFB } from "./redux/modules/bucketSlice";
+import { createBucket ,loadBucket} from "./redux/modules/bucketSlice";
+import axios from 'axios'
+
+
+
 function App() {
   const text = React.useRef(null);
+  const dispatch =useDispatch()
 
+  const load_bucket = async ()=>{
+    const res = await axios.get("http://localhost:5001/bucket")
+    dispatch(loadBucket(res.data));
+    
+  }
+  
   React.useEffect(() => {
-    distpatch(loadBucketFB());
+    load_bucket()
   }, []);
 
   const distpatch = useDispatch();
@@ -25,9 +36,10 @@ function App() {
     text.current.value = "";
   }
 
-  const addBucketList = () => {
+  const addBucketList = async() => {
     const newlist = { text: text.current.value, Done: false };
-    distpatch(createBucketFB(newlist));
+    await axios.post("http://localhost:5001/bucket",newlist)
+    distpatch(createBucket(newlist));
     resetplace();
   };
 

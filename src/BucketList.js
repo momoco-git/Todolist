@@ -4,10 +4,11 @@ import styled from "styled-components";
 
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import instance from './axios';
 const BucketList = (props) => {
   let navigate = useNavigate();
   const my_lists = useSelector((state) => state.bucket.list);
-
+  
   return (
     <ListStyle>
       {my_lists.map((list, num) => {
